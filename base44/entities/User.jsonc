@@ -1,0 +1,41 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "display_name": {
+      "type": "string"
+    },
+    "monthly_budget": {
+      "type": "number"
+    },
+    "share_token": {
+      "type": "string"
+    },
+    "onboarded": {
+      "type": "boolean",
+      "default": false
+    },
+    "avatar_emoji": {
+      "type": "string",
+      "default": "\ud83d\ude0e"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "xp_points": {
+      "type": "number",
+      "default": 0
+    },
+    "level": {
+      "type": "number",
+      "default": 1
+    },
+    "completed_lessons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    }
+  }
+}

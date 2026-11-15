@@ -1,0 +1,86 @@
+{
+  "name": "MonthlyChallenge",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "xp_reward": {
+      "type": "number",
+      "default": 50
+    },
+    "challenge_type": {
+      "type": "string",
+      "enum": [
+        "log_transactions",
+        "save_money",
+        "complete_survey",
+        "stay_under_budget",
+        "create_goal"
+      ]
+    },
+    "target_value": {
+      "type": "number"
+    },
+    "month": {
+      "type": "string"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "emoji": {
+      "type": "string",
+      "default": "\ud83c\udfaf"
+    }
+  },
+  "required": [
+    "title",
+    "challenge_type",
+    "month"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
